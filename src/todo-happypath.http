@@ -1,0 +1,19 @@
+GET https://localhost:7040/api/TodoItems HTTP/1.1
+
+###
+
+POST https://localhost:7040/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog1",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2": 123
+    }
+}
+
+###
+
+GET https://localhost:7040/api/TodoItems HTTP/1.1

