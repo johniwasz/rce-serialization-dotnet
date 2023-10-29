@@ -39,4 +39,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MaliciousAssembly\MaliciousAssembly.csproj" />
+  </ItemGroup>
+
 </Project>
