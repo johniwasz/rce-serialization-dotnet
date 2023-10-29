@@ -9,9 +9,6 @@ public class MetadataItem
 
     public string? Name { get; set;}
 
+    [Newtonsoft.Json.JsonConverter(typeof(BinaryJsonConverter))]
     public object? Data { get; set;}
-
-    [JsonIgnore]
-    [ForeignKey("Id")]
-    public TodoItem? ParentItem { get; set;}
 }
