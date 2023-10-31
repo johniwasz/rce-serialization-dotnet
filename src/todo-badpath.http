@@ -45,7 +45,7 @@ content-type: application/json
     {
         "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
             System.Configuration.Install",
-            "Path":"MaliciousAssembly.dll"}
+            "Path":"someimage.png"}
     }
 }
 

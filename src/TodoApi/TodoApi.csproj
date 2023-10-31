@@ -10,10 +10,14 @@
 
   <ItemGroup>
     <None Remove="rce-test.txt" />
+    <None Remove="someimage.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="rce-test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="someimage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
