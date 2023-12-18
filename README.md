@@ -87,6 +87,8 @@ content-type: application/json
 ```
 The _Path_ is local; however, in a production environment, it could be loaded from a temporary directory or another local directory.
 
+## Invoke the Malicious Property
+
 Now that the Assembly is in the AppDomain, the ProcessLaunch property can be invoked:
 
 ``` JSON 
