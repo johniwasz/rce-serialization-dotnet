@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Configuration.Install;
 
 namespace TodoApi.Controllers
 {
@@ -34,6 +35,8 @@ namespace TodoApi.Controllers
           }
            return await _context.TodoItems.Include(x => x.Metadata).ToListAsync();
            */
+
+            AssemblyInstaller installer test = new 
 
             return _items;
         }
