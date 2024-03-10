@@ -6,6 +6,14 @@ This project demonstrates serialization vulnerabilities using Newtonsoft.Json an
 
 These examples were assembled based on serialization vulnerabilities highlighted in the [ysoserial.net](https://github.com/pwntester/ysoserial.net) git repo. This example reproduces a remote code execution vulnerability by exploiting the Newtonsoft.Json serializer. 
 
+Prequistes
+
+Install .NET Framework 4.8.1:
+
+``` 
+winget install Microsoft.DotNet.Framework.DeveloperPack_4 -v 4.8.1
+```
+
 The [TypeNameHandling property](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_TypeNameHandling.htm) exposes a deserialization vulnerability then the value is set to anything other than _None_. This informs the deserialization process to resolve a type using the _$type_ property.
 ``` JSON
 {

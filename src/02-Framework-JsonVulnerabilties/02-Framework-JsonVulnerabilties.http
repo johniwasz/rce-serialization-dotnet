@@ -1,0 +1,6 @@
+@_02_Framework_JsonVulnerabilties_HostAddress = http://localhost:5226
+
+GET {{_02_Framework_JsonVulnerabilties_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
