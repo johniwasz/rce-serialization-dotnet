@@ -9,6 +9,10 @@ namespace TodoApi
     {
         public static void Register(HttpConfiguration config)
         {
+            // This introduces a security risk.
+            config.Formatters.JsonFormatter.SerializerSettings.TypeNameHandling =
+                    Newtonsoft.Json.TypeNameHandling.All;
+
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
                 new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 

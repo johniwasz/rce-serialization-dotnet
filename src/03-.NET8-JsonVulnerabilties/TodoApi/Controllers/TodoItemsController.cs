@@ -16,12 +16,13 @@ namespace TodoApi.Controllers
     [ApiController]
     public class TodoItemsController : ControllerBase
     {
+        private readonly TodoContext _context;
 
         private readonly static SynchronizedCollection<TodoItem> _items = new SynchronizedCollection<TodoItem>();
 
         public TodoItemsController(TodoContext context)
         {
-            // _context = context;
+            _context = context;
         }
 
         // GET: api/TodoItems
