@@ -11,8 +11,6 @@ public class TodoItem
     public bool IsComplete { get; set; }
 
     public Dictionary<string, object>? Metadata { get; set;}
-
-    public List<MetadataItem>? BinaryMetadata { get; set; }
 }
 
 
