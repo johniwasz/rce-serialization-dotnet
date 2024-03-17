@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryConsole", "BinaryCons
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "httptests", "httptests", "{730547CC-6611-4F9D-8D3E-085EE9300B31}"
 	ProjectSection(SolutionItems) = preProject
-		todo-requests.http = todo-requests.http
+		requests.http = requests.http
 	EndProjectSection
 EndProject
 Global
