@@ -1,6 +1,6 @@
 # Introduction
 
-This project demonstrates serialization vulnerabilities using Newtonsoft.Json and BinarySerialization. The Todo project is baseed on the starter tutorial available here:
+This project demonstrates serialization vulnerabilities using Newtonsoft.Json and BinarySerialization. The Todo project is based on the starter tutorial available here:
 
 [Create a controller based API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio)
 

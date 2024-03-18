@@ -22,8 +22,6 @@ namespace MaliciousAssembly
                 processName = value;
                 Process.Start(value);
             }
-
-
         }
     }
-    }
+}
