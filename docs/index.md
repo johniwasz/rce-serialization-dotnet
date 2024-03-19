@@ -51,7 +51,5 @@ GraphQL is increasing in popularity and is in use at Facebook, Netflix, IBM, AWS
     ```
 1. Launch the Damn Vulnerable GraphQL container:
     ``` bash
-    sudo docker run -t -p 5000:5000 -e WEB_HOST=0.0.0.0 dolevf/dvga
-
     sudo docker run -t -p 5013:5013 -e WEB_HOST=0.0.0.0 dolevf/dvga
     ```
