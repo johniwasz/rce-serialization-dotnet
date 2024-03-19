@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
 	<EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+	<UserSecretsId>be57d1d5-484a-44fd-8300-265ebc47a488</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
