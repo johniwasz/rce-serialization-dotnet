@@ -1,0 +1,3 @@
+# Binary Seralization
+
+Microsoft has 
