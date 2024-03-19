@@ -18,8 +18,8 @@ winget install Microsoft.DotNet.Framework.DeveloperPack_4 -v 4.8.1
 
 Each project demonstrates a serialization vulnerability.
 
-[01-BinaryFormatterVulnerabilities](/docs/serialization/BinarySerialization.md)  
-[02-Framework-JsonVulnerabilities](/docs/serialization/JSONSerialization.md)  
-[03-.NET-JsonVulnerabilities](/docs/serialization/NET8JSON.md)
+[01-BinaryFormatterVulnerabilities](serialization/BinarySerialization.md)  
+[02-Framework-JsonVulnerabilities](serialization/JSONSerialization.md)  
+[03-.NET-JsonVulnerabilities](serialization/NET8JSON.md)
 
 Load the solution in each project in Visual Studio, run the solution, and use the requests.http in the Solution Items folder to walk through the vulnerabilities.
