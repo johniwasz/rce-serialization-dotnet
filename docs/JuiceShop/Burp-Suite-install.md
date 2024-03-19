@@ -16,11 +16,11 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Launch _FoxyProxy Basic_.
 
-    ![Launch FoxyProxy](/images/FoxyProxy00.png "FoxyProxy extension")
+    ![Launch FoxyProxy](./images/FoxyProxy00.png "FoxyProxy extension")
 
 1. Select Options.
 
-    ![Select Options](/images/FoxyProxy01.png "Select Options")
+    ![Select Options](./images/FoxyProxy01.png "Select Options")
 
 1. Add a proxy with the following settings and click _Save_.  
   
@@ -30,11 +30,11 @@ This section covers how to install Burp Suite and configure it for use with a pr
     | Hostname | 127.0.0.1 | Local host |
     | Port | 8080 | Default port for Burp Suite |
 
-    ![Add Proxy](/images/FoxyProxy02.png "Add Proxy")
+    ![Add Proxy](./images/FoxyProxy02.png "Add Proxy")
 
 1. Enable the Hackerz Proxy. Browsing any non-local site will result in a "No Internet" connection error until Burp Suite is started. Select _Disable_ when done with Burp Suite.
 
-    ![Enable Proxy](/images/FoxyProxy03.png "Enable Proxy")
+    ![Enable Proxy](./images/FoxyProxy03.png "Enable Proxy")
 
 ## Configure the Burp Suite Certificate
 
@@ -42,17 +42,17 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Click _CA Certificate_. Save the certificate locally.
 
-    ![Burp Certificate](/images/BurpCert00.png "Burp Certificate")
+    ![Burp Certificate](./images/BurpCert00.png "Burp Certificate")
 
 1. Right-click on the certificate in Windows Explorer and select _Install Certificate_.
 
-    ![Install Certificate](/images/BurpCert01.png "Install Certificate")
+    ![Install Certificate](./images/BurpCert01.png "Install Certificate")
 
 1. Leave _Current User_ selected and click _Next_.
 
 1. Select _Place all certificates in the following store_, click _Browse_ and select the _Trusted Certificate Authorities_ store. Click _Next_.
 
-    ![Install Certificate](/images/BurpCert02.png "Install Certificate")
+    ![Install Certificate](./images/BurpCert02.png "Install Certificate")
 
 1. Click _Finish_.
 
@@ -62,4 +62,4 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Return to Burp Suite and navigate to the _Proxy_ | _HTTP History_ tab. This will show the requests and will be a launching point for penetration testing.
 
-    ![Validate Burp Suite Proxy](/images/BurpSuiteConfirm00.png "Validate Burp Suite Proxy")
+    ![Validate Burp Suite Proxy](./images/BurpSuiteConfirm00.png "Validate Burp Suite Proxy")
