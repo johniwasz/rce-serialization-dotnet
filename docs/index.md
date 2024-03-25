@@ -6,14 +6,18 @@ This repo explores .NET Framework and .NET serialization vulnerabilities. This d
 
 [Juice Shop Vulnerabilities](JuiceShop/JuiceShop.md)
 
+Serialization vulnerabilities and this documentation is maintained on Github at:
+
+[rce-serialization-dotnet](https://github.com/johniwasz/rce-serialization-dotnet)
+
 ## API Test Environments
 
 Vulerable API, GraphQL, and Website hosts can be used to build an vulnerability testing environment. OWASP maintains a list of vulnerable test projects at [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
 
 One of the most popular and maintained externally available vulnerable sites are:
 
-| Site   |  Owner | Technology |
-| -------- | ------- | ------- | 
+| Site   |  Owner |
+| -------- | ------- | 
 | [Gin and Juice Shop](https://ginandjuice.shop/)  | PortSwigger  | 
 | [OWASP Juice Shop](https://juice-shop.herokuapp.com/#/)  | OWASP  |
 
@@ -53,3 +57,4 @@ GraphQL is increasing in popularity and is in use at Facebook, Netflix, IBM, AWS
     ``` bash
     sudo docker run -t -p 5013:5013 -e WEB_HOST=0.0.0.0 dolevf/dvga
     ```
+

@@ -25,10 +25,18 @@ Intelligence can be gathered from public APIs and websites using public informat
 
 | Tool | Description |
 | ---  | ----------  |
-| [Amass](OSINT/amass.md) | Find registered subdomains |
+| [amass](OSINT/amass.md) | Find registered subdomains |
 | [nikto](OSINT/nikto.md) | Find vulnerable headers and directories |
 | [Kiterunner](OSINT/Kiterunner.md) | Find vulnerable routes |
+| [securityheaders.com](OSINT/securityheaders.md) | Validate security headers |
 
 ## Penetration Testing
 
-Penetration testing can be performed manually; however, tools ease the effort. These exercises use Burp Suite. Please follow the instructions to [Install and Configure Burp Suite Community Edition](Burp-Suite-install.md).
+Penetration testing can be performed manually; however, tools ease the effort. These exercises use ZAP and Burp Suite Community Edition
+
+Zed Attack Proxy is also used. Please follow these instructions:
+
+[Zed Attack Proxy Installation](./zed-attack-proxy.md)
+
+Please follow the instructions to [Install and Configure Burp Suite Community Edition](Burp-Suite-install.md).
+
