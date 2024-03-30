@@ -12,7 +12,7 @@ Serialization vulnerabilities and this documentation is maintained on Github at:
 
 ## API Test Environments
 
-Vulerable API, GraphQL, and Website hosts can be used to build an vulnerability testing environment. OWASP maintains a list of vulnerable test projects at [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
+Vulnerable API, GraphQL, and Website hosts can be used to build an vulnerability testing environment. OWASP maintains a list of vulnerable test projects at [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
 
 One of the most popular and maintained externally available vulnerable sites are:
 
