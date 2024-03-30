@@ -104,5 +104,49 @@ content-type: application/json
 
 These calls are available in the _requests.http_ file. Running these examples in Visual Studio Code requires the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension.
 
-TODO - ADD CODE ANALYSIS INSTRUCTIONS
+## Code Analysis Rules
+
+Code Analysis Rules can be used to identify common security vulnerabilities and other issues. For more information, see [roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers#microsoftcodeanalysisnetanalyzers).
+
+1. Install the latest released [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers) Nuget package in the TodoApi.
+
+1. Open File Explorer and navigate to the .nuget installation directory and review the folders under: 
+    ```
+    %USERPROFILE%\.nuget\packages\microsoft.codeanalysis.netanalyzers\8.0.0\editorconfig
+    ```
+1. Copy the `.editorconfig` file in the `AllRulesDefault` folder to the solution folder. This is the same folder that contains the `.NET8-JsonVulnerabilties.sln` file. The `SecurityRulesEnabled\.editorconfig` folder includes security rules set to warning and all others set to none. Default rules includes security rules set to 
+
+1. In Visual Studio, right-click on the `Solution Items` folder and select `Add | Existing Item...`. Add the `.editorconfig` file from the solution root directory.
+
+1. Rebuild and observe the Warning messages returned in the 
+
+    ![Observe Warnings](./images/serialization01.png "Observe Warnings")
+
+1. Warnings alert us to the issue, but they don't block the build. To prevent the Newtonsoft.Json security vulnerability, change the severity level to Error. Double-click the `.editorconfig` file, select the `Analyzers` tab. Search for `TypeName`. This is enough to find the `TypeNameResolver`. Change the Warning to Error. Save the `.editorconfig`.
+
+    ![Warnings to Errors](./images/serialization02.png "Warnings to Errors")
+
+1. Attempt to rebuild the solution. Observe that rebuilding fails with four errors.
+
+1. Resolve the TypeNameResolver error in the Todo API project by commenting out line 11 in Program.cs in the Todo API project which applies the `TypeNameHandling.All` value. Observe that three security code analysis errors remain.
+
+    ``` C#
+    builder.Services.AddControllers().AddNewtonsoftJson(
+    options =>
+    {
+        // options.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    });
+    ```
+
+1. In the JsonDeserialization.cs file in the RCESerialization.Test project, apply the following attribute to the test class. Observe that no code analysis errors remain.
+
+    ```C#
+    namespace SerializationRCE
+    {
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2326:Do not use TypeNameHandling values other than None", Justification = "Test class. This is not production code.")]
+    public class JsonDeserialization
+    ```
+
 

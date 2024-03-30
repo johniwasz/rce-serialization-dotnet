@@ -11,7 +11,7 @@ wsl
 
 ``` bash
 sudo docker pull bkimminich/juice-shop
-sudo docker run --rm -p 88:3000 bkimminich/juice-shop
+sudo docker run --rm -p 80:3000 bkimminich/juice-shop
 ```
 
 3. Launch a browser and navigate to `http://localhost:88`.

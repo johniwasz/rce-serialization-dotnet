@@ -19,7 +19,3 @@ curl https://raw.githubusercontent.com/OWASP/Amass/master/examples/datasources.y
 ```
 amass enum --passive -d owasp-juice.shop
 ```
-5. 
-```
-amass intel -whois -d owasp-juice.shop
-```
