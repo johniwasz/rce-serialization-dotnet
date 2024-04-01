@@ -1,6 +1,6 @@
-# WSL Install
+# Windows Subsystem for Linux Install
 
-Setting up an environment on Windows requires enabling [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) and launch it.
+Setting up an environment on Windows requires enabling [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/?WT.mc_id=MVP_337682) and launch it.
 
 ```
 wsl --install

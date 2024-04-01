@@ -1,5 +1,8 @@
 # ~~OWASP~~ Zed Attack Proxy (ZAP)
 
+Formerly, ZAP was owned and maintained by OWASP. It has since become part of the [Software Security Project](https://softwaresecurityproject.org/). 
+
+[ZAP Funding and the Open Source Fellowship](https://www.zaproxy.org/blog/2024-03-13-zap-funding-and-the-open-source-fellowship/)
 
 1. If the Java Runtime environment is not already installed. Download it from [https://www.java.com/en/download/](https://www.java.com/en/download/). If Maltego is already installed, then it is already available. See the Maltego Java Config Windows desktop application for the location of the JRE used by Maltego. 
 
@@ -27,6 +30,10 @@
 
     ![Add Proxy](./images/FoxyProxy02.png "Add Proxy")
 
+1. Chrome bypasses the proxy when navigating to `localhost`. To avoid this, navigate to the Options tab and add `<-loopback>` to the Global Exclude text box and Save.
+
+    ![Include Loopback](./images/FoxyProxy05.png "Include Loopback")
+
 1. Enable the ZAP Proxy. Browsing any non-local site will result in a "No Internet" connection error until ZAP is started and configured for port 8081. Select _Disable_ when done with ZAP.
 
     ![Enable Proxy](./images/FoxyProxy04.png "Enable Proxy")
@@ -47,16 +54,17 @@
 
 1. Select _Place all certificates in the following store_, click _Browse_ and select the _Trusted Certificate Authorities_ store. Click _Next_.
 
-    ![Install Certificate](./images/BurpCert02.png "Install Certificate")
+    ![Store Certificate](./images/BurpCert02.png "Store Certificate")
 
 1. Click _Finish_. The browser using Foxy Proxy may need to be restarted for the certificate to take effect.
 
 1. Navigate to [http://zap/](http://zap/) on the configured browser. This documentation page is a launching point into tutorials and background about the tool.
 
-1. Open Notepad as an Administrator, navigate to C:\Windows\System32\drivers\etc, and open the hosts file.
+1. In ZAP, select Manage Add-Ons in the tool bar.
 
-1. Add the following entry without a comment and save the file.
+    ![Install Add-Ons](./images/ZAP03.png "Install Add-Ons")
 
-    ```
-    127.0.0.1    juiceshop
-    ```
+1. Navigate to the Marketplace tab. Select and install the following Add-Ons:
+
+    - FuzzDb
+    - SVN Digger Files

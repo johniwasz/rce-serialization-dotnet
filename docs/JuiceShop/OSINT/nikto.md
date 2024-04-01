@@ -20,12 +20,9 @@ This uses nikto to walk the hosting site and discover potential vulnerabilities.
     ```
     Or
     ```
-    nikto -h http://localhost:88
+    nikto -h https://localhost:88
     ```
 1. Note the results and potential exploits.
-
-
-
 
     The following is returned from a local scan:
     ```
@@ -55,4 +52,3 @@ This uses nikto to walk the hosting site and discover potential vulnerabilities.
     ---------------------------------------------------------------------------
     + 1 host(s) tested
 ```
-

