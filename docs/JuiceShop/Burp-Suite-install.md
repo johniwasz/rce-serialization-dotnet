@@ -52,7 +52,7 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Select _Place all certificates in the following store_, click _Browse_ and select the _Trusted Certificate Authorities_ store. Click _Next_.
 
-    ![Install Certificate](./images/BurpCert02.png "Install Certificate")
+    ![Trust Certificate](./images/BurpCert02.png "Trust Certificate")
 
 1. Click _Finish_.
 

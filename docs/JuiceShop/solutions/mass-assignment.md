@@ -5,7 +5,7 @@ Mass assignment occurs when a property of a JSON or request payload is available
 1. Review the network traffic generated after creating a user in the OWASP juice shop and note the following request:
 
     ``` json
-    POST http://hacktarget:88/api/Users/ HTTP/1.1
+    POST https://localhost:88/api/Users/ HTTP/1.1
     {
         "email" : "someone@somewhere.com",
         "password" : "BadPass123",
@@ -44,7 +44,7 @@ Mass assignment occurs when a property of a JSON or request payload is available
 1. Note that the `role` is returned. Attempt to create a new user with the following request:
 
     ``` json
-    POST http://hacktarget:88/api/Users/ HTTP/1.1
+    POST https://localhost:88/api/Users/ HTTP/1.1
     {
         "email" : "sneakyadmin",
         "password" : "admin",

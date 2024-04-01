@@ -1,7 +1,6 @@
 # Overwrite Content Security Policy Header
 
-
-1. Navigate to [http://hackertarget:88](http://hackertarget:88) or [https://demo.owasp-juice.shop].
+1. Navigate to [https://localhost:88](http://localhost:88) or [https://demo.owasp-juice.shop].
 
 1. Log in with an account.
 
