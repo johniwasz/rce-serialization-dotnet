@@ -31,7 +31,7 @@ Use [Kiterunner](https://github.com/assetnote/kiterunner) to find API endpoints.
     ```
 1. Run the scan against the local OWASP Juice Shop.
     ``` bash
-    kr scan http://localhost:88 -A=apiroutes-240128:20000 -x 10 --ignore-length=34 --fail-status-codes 404
+    kr scan https://localhost:88 -A=apiroutes-240128:20000 -x 10 --ignore-length=34 --fail-status-codes 404
     ```
 1. Optional. Replay a request. Replace the text in the quotes with the output of a 200 response from the prior run. NOTE: There may be a bug which prevents successful completion.
 
