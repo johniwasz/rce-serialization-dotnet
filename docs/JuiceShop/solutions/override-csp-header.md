@@ -1,10 +1,10 @@
 # Overwrite Content Security Policy Header
 
-1. Navigate to [https://localhost:88](http://localhost:88) or [https://demo.owasp-juice.shop].
+1. Navigate to [https://localhost:88](http://localhost:88) or [https://demo.owasp-juice.shop](https://demo.owasp-juice.shop).
 
 1. Log in with an account.
 
-1. A forced directory search or other scan finds the /profile subdirectory. Manually navigate to it.
+1. A forced directory search, nikto scan, or other scan finds the /profile subdirectory. Manually navigate to it.
 
 1. Enter this following value in _Username_:
     ```

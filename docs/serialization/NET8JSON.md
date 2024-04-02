@@ -1,4 +1,4 @@
-# .NET 8 Serialization Vulnerability
+# .NET 8 Json.NET Serialization Vulnerability
 
 Exploiting JSON serialization vulnerabilities in .NET is more challenging than in the .NET Framework. The .NET Framework gadget chains exploited by [ysoserial.net](https://github.com/pwntester/ysoserial.net) have been remediated in .NET. 
 
@@ -97,14 +97,39 @@ content-type: application/json
     {
         "launchdata":  
            { "$type":"MaliciousAssembly.ProcessStarter, MaliciousAssembly",
-             "ProcessLaunch":"calc.exe" }
+             "ProcessLaunch":"calc.exe" 
+            }
     }
 }
 ```
 
 These calls are available in the _requests.http_ file. Running these examples in Visual Studio Code requires the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension.
 
-## Code Analysis Rules
+## Remediating the Vulnerability
+
+The next section covers how to close the security vulnerabilities exposed in the prior exercise.
+
+### Scanning for Github Security Advisories
+
+Scan the solution for known vulnerabilities using `dotnet`.
+
+1. Navigate to the solution folder in a command prompt.
+
+1. Execute the following and observe the results.
+    ```
+    dotnet list package --vulnerable
+    ```
+1. Execute the a check for transitive dependencies and observe the results.
+    ```
+    dotnet list package --vulnerable --include-transitive
+    ```
+
+Update any vulnerable Nuget packages that are directly referenced. Investigate and update vulnerable transitive dependencies if possible.
+
+For more information, please see:
+[How to Scan NuGet Packages for Security Vulnerabilities](https://devblogs.microsoft.com/nuget/how-to-scan-nuget-packages-for-security-vulnerabilities/?WT.mc_id=MVP_337682)
+
+### Code Analysis Rules
 
 Code Analysis Rules can be used to identify common security vulnerabilities and other issues. For more information, see [roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers#microsoftcodeanalysisnetanalyzers).
 
@@ -122,7 +147,7 @@ Code Analysis Rules can be used to identify common security vulnerabilities and 
 
     ![Observe Warnings](./images/serialization01.png "Observe Warnings")
 
-1. Warnings alert us to the issue, but they don't block the build. To prevent the Newtonsoft.Json security vulnerability, change the severity level to Error. Double-click the `.editorconfig` file, select the `Analyzers` tab. Search for `TypeName`. This is enough to find the `TypeNameResolver`. Change the Warning to Error. Save the `.editorconfig`.
+1. Warnings alert us to the issue, but they don't block the build. To prevent the Newtonsoft Json.NET security vulnerability, change the severity level to Error. Double-click the `.editorconfig` file, select the `Analyzers` tab. Search for `TypeName`. This is enough to find the `TypeNameResolver`. Change the Warning to Error. Save the `.editorconfig`.
 
     ![Warnings to Errors](./images/serialization02.png "Warnings to Errors")
 
