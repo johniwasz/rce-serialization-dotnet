@@ -6,7 +6,7 @@ The [BinaryFormatter](https://learn.microsoft.com/en-us/dotnet/api/system.runtim
 
 [^1]: Binary Formatter was removed in .NET Core 1.0, but reappeared in .NET Core 1.1 and onward.
 
-On Feb. 9th, Microsoft announced the BinaryFormatter is being removed from .NET 9:
+On Feb. 9th, 2024, Microsoft announced the BinaryFormatter is being removed from .NET 9:
 
 [Announcement: BinaryFormatter is being removed in .NET 9](https://github.com/dotnet/runtime/issues/98245)
 
