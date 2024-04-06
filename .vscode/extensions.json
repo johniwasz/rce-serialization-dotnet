@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "DavidAnson.vscode-markdownlint",
+        "humao.rest-client",
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "streetsidesoftware.code-spell-checker" 
+    ]
+}
