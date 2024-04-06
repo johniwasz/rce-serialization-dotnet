@@ -14,25 +14,26 @@ These examples were assembled based on serialization vulnerabilities highlighted
 
 ## Prerequisites
 
-Install [Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022&WT.mc_id=MVP_337682). 
+Install [Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022&WT.mc_id=MVP_337682).
 
 Install .NET Framework 4.8.1:
 
-``` 
+``` bat
 winget install Microsoft.DotNet.Framework.DeveloperPack_4 -v 4.8.1
 ```
 
 Install .NET 8:
 
-```
+``` bat
 winget install Microsoft.DotNet.SDK.8
 ```
 
 Install Git:
 
-```
+``` bat
 winget install Git.Git
 ```
+
 ### Ysoserial.net
 
 [Ysoserial.net](https://github.com/pwntester/ysoserial.net) creates malicious serialized payloads for a variety of libraries including [Json.NET](https://www.newtonsoft.com/json), MessagePack, and BinaryFormatter.
@@ -42,19 +43,25 @@ The payloads cannot be programmatically generated using these serializers with n
 1. Enable .NET 3.5 on Windows using the instructions here: [Enable .NET 3.5 on WIndows](https://learn.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows?WT.mc_id=MVP_337682). This is required to build ysoserial.net. It exploits vulnerabilities in prior versions of the .NET Framework.
 
 1. Open a command prompt and navigate to:
-    ```
+
+    ``` bat
     %userprofile%\source\repos
     ```
+
 1. Clone the ysoserial.net repo.
-    ```
+
+    ``` bat
     git clone https://github.com/pwntester/ysoserial.net.git
     ```
-1. Open the solution in Visual Studio and build. 
+
+1. Open the solution in Visual Studio and build.
 
 1. Navigate to the debug directory in a command prompt.
-    ```
+
+    ``` bat
     %userprofile%\source\repos\ysoserial.net\ysoserial\bin\Debug
     ```
+
 1. Execute `ysoserial --help`. The executable may not be available. It is considered malware by most malware scanners. Check Windows Security or your active malware scanner for detected threats and remove `ysoserial.exe` from quarantine.
 
 1. Optionally, add the Debug directory to your %PATH%.
@@ -66,13 +73,17 @@ Take a moment to review the [Usages](https://github.com/pwntester/ysoserial.net?
 The [rce-serialization-dotnet](https://github.com/johniwasz/rce-serialization-dotnet) repo includes the serializations projects and this documentation.
 
 1. Open a command prompt and navigate to:
-    ```
+
+    ``` bat
     %userprofile%\source\repos
     ```
+
 1. Clone the rce-serialization-dotnet repo.
-    ```
+
+    ``` bat
     git clone https://github.com/johniwasz/rce-serialization-dotnet.git
     ```
+
 The projects are in the `src` subdirectory.
 
 ## Serialization Vulnerability Repros

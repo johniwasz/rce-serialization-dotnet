@@ -2,11 +2,12 @@
 
 Launch Windows Subsystem for Linux, install the container, and launch the Juice Shop.
 
-1. Open an Ubuntu shell from a DOS or Powershell terminal:
+1. Open an Ubuntu shell from a Windows Command or Powershell terminal:
 
-    ```
+    ``` bat
     wsl
     ```
+
     If you need to install Windows Subsystem for Linux, please see [WSL Install](wsl-install.md).
 
 1. Install the OWASP Juice Shop container From the Ubuntu command shell:
@@ -15,6 +16,7 @@ Launch Windows Subsystem for Linux, install the container, and launch the Juice 
     sudo docker pull bkimminich/juice-shop
     sudo docker run --rm -p 80:3000 bkimminich/juice-shop
     ```
+
     If you need to install Docker, see [Docker Install](./docker-install.md).
 
 1. Launch a browser and navigate to `http://localhost:88`.

