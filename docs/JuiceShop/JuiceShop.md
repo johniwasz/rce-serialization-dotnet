@@ -25,6 +25,7 @@ Intelligence can be gathered from public APIs and websites using public informat
 
 | Tool | Description |
 | ---  | ----------  |
+| [nmap](OSINT/nmap.md) | network scanning |
 | [amass](OSINT/amass.md) | Find registered subdomains |
 | [nikto](OSINT/nikto.md) | Find vulnerable headers and directories |
 | [Kiterunner](OSINT/Kiterunner.md) | Find vulnerable routes |

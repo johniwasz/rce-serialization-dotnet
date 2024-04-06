@@ -1,10 +1,10 @@
 # ~~OWASP~~ Zed Attack Proxy (ZAP)
 
-Formerly, ZAP was owned and maintained by OWASP. It has since become part of the [Software Security Project](https://softwaresecurityproject.org/). 
+Formerly, ZAP was owned and maintained by OWASP. It has since become part of the [Software Security Project](https://softwaresecurityproject.org/).
 
 [ZAP Funding and the Open Source Fellowship](https://www.zaproxy.org/blog/2024-03-13-zap-funding-and-the-open-source-fellowship/)
 
-1. If the Java Runtime environment is not already installed. Download it from [https://www.java.com/en/download/](https://www.java.com/en/download/). If Maltego is already installed, then it is already available. See the Maltego Java Config Windows desktop application for the location of the JRE used by Maltego. 
+1. If the Java Runtime environment is not already installed. Download it from [https://www.java.com/en/download/](https://www.java.com/en/download/). If Maltego is already installed, then it is already available. See the Maltego Java Config Windows desktop application for the location of the JRE used by Maltego.
 
 1. Download the Windows 64-bit OWASP ZAP installer at [https://www.zaproxy.org/download/](https://www.zaproxy.org/download/).
 
@@ -23,7 +23,7 @@ Formerly, ZAP was owned and maintained by OWASP. It has since become part of the
 1. Add a proxy with the following settings and click _Save_.  
   
     | Setting  | Value | Description |
-    | -------- | ------- | ------- | 
+    | --- | --- | --- |
     | Title | ZAP | Name of the proxy |
     | Hostname | 127.0.0.1 | Local host |
     | Port | 8081 | Proxy for ZAP |

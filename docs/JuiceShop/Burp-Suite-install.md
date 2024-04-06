@@ -8,7 +8,7 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Launch Burp Suite. Community Edition allows only in-memory project. Click _Next_.
 
-1. Leave _Use Burp Defaults_ selected and click _Start Burp_. 
+1. Leave _Use Burp Defaults_ selected and click _Start Burp_.
 
 ## Configure Proxy
 
@@ -24,9 +24,9 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 1. Add a proxy with the following settings and click _Save_.  
   
-    | Setting  | Value | Description |
-    | -------- | ------- | ------- | 
-    | Title | Hackz | Name of the proxy |
+    | Setting | Value | Description |
+    | --- | --- | --- |
+    | Title | Hackerz | Name of the proxy |
     | Hostname | 127.0.0.1 | Local host |
     | Port | 8080 | Default port for Burp Suite |
 
@@ -38,7 +38,7 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 ## Configure the Burp Suite Certificate
 
-1. Return to the browser with _FoxyProxy Basic_ enabled and navigate to http://burpsuite.
+1. Return to the browser with _FoxyProxy Basic_ enabled and navigate to <http://burpsuite>.
 
 1. Click _CA Certificate_. Save the certificate locally.
 
@@ -58,7 +58,7 @@ This section covers how to install Burp Suite and configure it for use with a pr
 
 ## Confirm Proxy Capture in Burp Suite
 
-1. Return to the browser with _FoxyProxy Basic_ enabled and navigate to https://demo.owasp-juice.shop/ or http://localhost:88 if running the container.
+1. Return to the browser with _FoxyProxy Basic_ enabled and navigate to <https://demo.owasp-juice.shop/> or <http://localhost:88> if running the container.
 
 1. Return to Burp Suite and navigate to the _Proxy_ | _HTTP History_ tab. This will show the requests and will be a launching point for penetration testing.
 

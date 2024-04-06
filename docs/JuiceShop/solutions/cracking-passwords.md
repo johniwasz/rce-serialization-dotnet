@@ -12,7 +12,7 @@ The hashed password is:
 | SHA-1 | 40 |
 | SHA-256 | 64 |
 
-This password hash is 32 characters long and so we will assume this is an MD5 hash. 
+This password hash is 32 characters long and so we will assume this is an MD5 hash.
 
 ## Use Online Tool
 
@@ -32,7 +32,7 @@ This uses a brute force approach in ZAP to send multiple requests using fuzzing.
 
     ![Fuzz Dialog](./images/CrackPassword01.png "Fuzz Dialog")
 
-1. Highlight the value in the password field and click `Add`. 
+1. Highlight the value in the password field and click `Add`.
 
     ![Select Replacement](./images/CrackPassword02.png "Select Replacement")
 
