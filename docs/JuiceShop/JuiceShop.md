@@ -18,9 +18,9 @@ Running Juice Shop locally requires docker and Windows Subsystem for Linux.
 
 To install Juice Shop a local docker container, see [Juice Shop Install](JuiceShopInstall.md) which creates a local running instance at https://localhost:88 and http://localhost:88 hosted on docker on Ubuntu.
 
-## Reconnaissance 
+## Reconnaissance
 
-Intelligence can be gathered from public APIs and websites using public information. This is typically referred to as [OSINT](https://osintframework.com/). 
+Intelligence can be gathered from public APIs and websites using public information. This is typically referred to as [OSINT](https://osintframework.com/).
 
 
 | Tool | Description |

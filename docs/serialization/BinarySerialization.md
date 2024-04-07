@@ -133,7 +133,7 @@ This uses [`ncat`](https://nmap.org/ncat/guide/index.html), a versatile networki
 
 > **Ncat may not be permitted in a work environment as it is often used for penetration testing and attacking. Executing network scans without permission may trigger security alerts and prompt a response from the organization's Security Operations Center (SOC), potentially leading to disciplinary actions or legal consequences. Therefore, it is crucial to always obtain permission and follow established protocols before utilizing tools like Ncat in a professional setting.**
 
-### Validating a Reverse Shall
+### Validating a Reverse Shell
 
 This exercise walks through opening a reverse shell manually before adding more complexity. The next exercise opens a reverse shell by launching ncat from a malicious payload.
 
@@ -267,7 +267,7 @@ The sequence in the prior exercise changes a bit. In this scenario, the REST cli
 sequenceDiagram    
     Ubuntu-Attacker->>Ubuntu-Attacker: Start listener using nc -vnlp 2222
     REST Client->>Windows-Target: Send malicious payload
-    Windows-Target->>Ubuntu-Attacker: Opens reverse shell on port 2222
+    Windows-Target->>Ubuntu-Attacker: Open reverse shell on port 2222
     Ubuntu-Attacker->>Windows-Target: Execute shell commands
 ```
 
