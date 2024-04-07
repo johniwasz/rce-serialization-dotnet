@@ -267,7 +267,7 @@ The sequence in the prior exercise changes a bit. In this scenario, the REST cli
 sequenceDiagram    
     Ubuntu-Attacker->>Ubuntu-Attacker: Start listener using nc -vnlp 2222
     REST Client->>Windows-Target: Send malicious payload
-    Windows-Target->>Ubuntu-Attacker: Opens reverse shell on port 2222
+    Windows-Target->>Ubuntu-Attacker: Open reverse shell on port 2222
     Ubuntu-Attacker->>Windows-Target: Execute shell commands
 ```
 
