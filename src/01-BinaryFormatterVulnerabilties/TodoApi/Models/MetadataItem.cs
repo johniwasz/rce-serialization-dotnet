@@ -11,8 +11,7 @@ namespace TodoApi.Models
     {
         public string Name { get; set; }
 
-        [Newtonsoft.Json.JsonConverter(typeof(BinaryJsonConverter))]
-        // [JsonConverter(typeof(BinaryConverter))]
+        [JsonConverter(typeof(BinaryJsonConverter))]
         public object Data { get; set; }
     }
 }

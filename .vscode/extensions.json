@@ -4,6 +4,7 @@
         "humao.rest-client",
         "ms-dotnettools.csharp",
         "ms-dotnettools.csdevkit",
-        "streetsidesoftware.code-spell-checker" 
+        "streetsidesoftware.code-spell-checker",
+        "bierner.markdown-mermaid"
     ]
 }
