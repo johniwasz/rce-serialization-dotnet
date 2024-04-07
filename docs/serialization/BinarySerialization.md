@@ -133,7 +133,7 @@ This uses [`ncat`](https://nmap.org/ncat/guide/index.html), a versatile networki
 
 > **Ncat may not be permitted in a work environment as it is often used for penetration testing and attacking. Executing network scans without permission may trigger security alerts and prompt a response from the organization's Security Operations Center (SOC), potentially leading to disciplinary actions or legal consequences. Therefore, it is crucial to always obtain permission and follow established protocols before utilizing tools like Ncat in a professional setting.**
 
-### Validating a Reverse Shall
+### Validating a Reverse Shell
 
 This exercise walks through opening a reverse shell manually before adding more complexity. The next exercise opens a reverse shell by launching ncat from a malicious payload.
 
