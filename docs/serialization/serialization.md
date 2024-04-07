@@ -64,6 +64,10 @@ The payloads cannot be programmatically generated using these serializers with n
 
 1. Execute `ysoserial --help`. The executable may not be available. It is considered malware by most malware scanners. Check Windows Security or your active malware scanner for detected threats and remove `ysoserial.exe` from quarantine.
 
+    a. If `ysoserial.exe` is not available, navigate to Windows Security and select Virus & Threat Protection. Review threat history and find `ysoserial.exe`. Select Action | Restore.
+
+    ![ysoserial quarantined](./images/ysoserial01.png "ysoserial quarantined")
+
 1. Optionally, add the Debug directory to your %PATH%.
 
 Take a moment to review the [Usages](https://github.com/pwntester/ysoserial.net?tab=readme-ov-file#usage) of `ysoserial` parameters before embarking into the projects.

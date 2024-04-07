@@ -5,12 +5,12 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi", "TodoApi\TodoApi.csproj", "{47CD5C7E-520E-4E1B-A584-33996E865FFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryConsole", "BinaryConsole\BinaryConsole.csproj", "{5443B3FB-42DA-48CE-AA5A-3329CB9F2F20}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "httptests", "httptests", "{730547CC-6611-4F9D-8D3E-085EE9300B31}"
 	ProjectSection(SolutionItems) = preProject
 		requests.http = requests.http
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi.Tests", "TodoApi.Tests\TodoApi.Tests.csproj", "{4330476C-C409-49D9-B169-A41998C0538C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		{47CD5C7E-520E-4E1B-A584-33996E865FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47CD5C7E-520E-4E1B-A584-33996E865FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47CD5C7E-520E-4E1B-A584-33996E865FFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5443B3FB-42DA-48CE-AA5A-3329CB9F2F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5443B3FB-42DA-48CE-AA5A-3329CB9F2F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5443B3FB-42DA-48CE-AA5A-3329CB9F2F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5443B3FB-42DA-48CE-AA5A-3329CB9F2F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4330476C-C409-49D9-B169-A41998C0538C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4330476C-C409-49D9-B169-A41998C0538C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4330476C-C409-49D9-B169-A41998C0538C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4330476C-C409-49D9-B169-A41998C0538C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

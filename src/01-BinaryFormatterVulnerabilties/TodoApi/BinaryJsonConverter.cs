@@ -35,6 +35,8 @@ namespace TodoApi
             using (var stream = new MemoryStream(buffer))
             {
                 BinaryFormatter binaryformatter = new BinaryFormatter();
+
+                // This is the vulnerable line of code
                 convertedObj = binaryformatter.Deserialize(stream);
             }
             

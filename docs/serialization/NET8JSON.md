@@ -4,7 +4,9 @@ Exploiting JSON serialization vulnerabilities in .NET is more challenging than i
 
 This exploit requires setting _TypeNameHandling_ to _TypeNameHandling.All_. System.Text.Json does not natively allow type names to be included in serialized messages and is recommended. Further, with .NET 6+ it is not possible to override the default JSON serializer from System.Text.Json when using minimal APIs. See [Minimal APIs quick reference](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-8.0&WT.mc_id=MVP_337682#configure-json-deserialization-options-for-body-binding).
 
-``` C#
+The code to run and reproduce this vulnerability is located in the scr/03-NET8-JsonVulnerabilities/unsecured folder in this repository and can be found at <https://github.com/johniwasz/rce-serialization-dotnet/tree/main/src/03-.NET8-JsonVulnerabilties/unsecured>.
+
+``` csharp
 builder.Services.AddControllers().AddNewtonsoftJson(
     options =>
     {
@@ -15,7 +17,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(
 
 The MaliciousAssembly project includes a property that launches a process using the value of the property:
 
-``` C#
+``` csharp
 using System.Diagnostics;
 . . .
 public string ProcessLaunch
@@ -34,7 +36,7 @@ public string ProcessLaunch
 
 The build process copies the MaliciousAssembly to the bin directory of the Todo API as _someimage.png_. This simulates an insecure file upload process. Which can be exploited through the _Metadata_ property of the _TodoItem_.
 
-``` C#
+``` csharp
 public class TodoItem
 {
     public long Id { get; set; }
@@ -46,9 +48,13 @@ public class TodoItem
 
 ```
 
+Locate the requests.http file in the `Solution Items` folder.
+
 This can be exploited using the following message:
 
 ``` json
+# Test if a file can be read
+POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
 {
   "name": "walk dog1",
   "isComplete": true,
@@ -62,6 +68,8 @@ This can be exploited using the following message:
     }
 }
 ```
+
+Note that the request generates an error since the `System.IO.FileInfo' class is not serializable; however, the class was instantiated which confirms a serialization vulnerability.
 
 ## Load the malicious file
 
@@ -149,7 +157,7 @@ Code Analysis Rules can be used to identify common security vulnerabilities and 
     %USERPROFILE%\.nuget\packages\microsoft.codeanalysis.netanalyzers\8.0.0\editorconfig
     ```
 
-1. Copy the `.editorconfig` file in the `AllRulesDefault` folder to the solution folder. This is the same folder that contains the `.NET8-JsonVulnerabilties.sln` file. The `SecurityRulesEnabled\.editorconfig` folder includes security rules set to warning and all others set to none. Security rules are disabled by default.
+1. Copy the `.editorconfig` file in the `AllRulesDefault` folder to the solution folder. This is the same folder that contains the `.NET8-JsonVulnerabilities.sln` file. The `SecurityRulesEnabled\.editorconfig` folder includes security rules set to warning and all others set to none. Security rules are disabled by default.
 
 1. In Visual Studio, right-click on the `Solution Items` folder and select `Add | Existing Item...`. Add the `.editorconfig` file from the solution root directory.
 
@@ -165,7 +173,7 @@ Code Analysis Rules can be used to identify common security vulnerabilities and 
 
 1. Resolve the TypeNameResolver error in the Todo API project by commenting out line 11 in Program.cs in the Todo API project which applies the `TypeNameHandling.All` value. Observe that three security code analysis errors remain.
 
-    ``` C#
+    ``` csharp
     builder.Services.AddControllers().AddNewtonsoftJson(
     options =>
     {
@@ -176,7 +184,7 @@ Code Analysis Rules can be used to identify common security vulnerabilities and 
 
 1. In the JsonDeserialization.cs file in the RCESerialization.Test project, apply the following attribute to the test class. Observe that no code analysis errors remain.
 
-    ```C#
+    ```csharp
     namespace SerializationRCE
     {
 
