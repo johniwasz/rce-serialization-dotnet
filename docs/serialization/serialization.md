@@ -40,7 +40,7 @@ winget install Git.Git
 
 The payloads cannot be programmatically generated using these serializers with native implementations. Ysoserial.net manipulates the serialized message to inject a malicious payload. Deserialization results in a runtime exception; however, a remote code execution exploit is triggered.
 
-1. Enable .NET 3.5 on Windows using the instructions here: [Enable .NET 3.5 on WIndows](https://learn.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows?WT.mc_id=MVP_337682). This is required to build ysoserial.net. It exploits vulnerabilities in prior versions of the .NET Framework.
+1. Enable .NET 3.5 on Windows using the instructions here: [Enable .NET 3.5 on Windows](https://learn.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows?WT.mc_id=MVP_337682). This is required to build ysoserial.net. It exploits vulnerabilities in prior versions of the .NET Framework.
 
 1. Open a command prompt and navigate to:
 
