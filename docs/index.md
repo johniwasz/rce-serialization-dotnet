@@ -24,7 +24,7 @@ One of the most popular and maintained externally available vulnerable sites are
 
 ## Other Vulnerable C# Projects
 
-[WebGoat.NET](https://github.com/jerryhoff/WebGoat.NET)
+[WebGoat.NET](https://github.com/jerryhoff/WebGoat.NET)  
 [Damn Vulnerable C# Application (API)](https://github.com/appsecco/dvcsharp-api)
 
 ### Install and Run the crAPI

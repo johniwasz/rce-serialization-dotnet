@@ -271,6 +271,14 @@ sequenceDiagram
     Ubuntu-Attacker->>Windows-Target: Execute shell commands
 ```
 
+```mermaid
+graph TD;
+    Ubuntu-Attacker-->Ubuntu-Attacker;
+    RESTClient-->Windows-Target;
+    Windows-Target-->Ubuntu-Attacker;
+    Ubuntu-Attacker-->Windows-Target;
+```
+
 1. Open an Ubuntu shell.
 
     ``` bat

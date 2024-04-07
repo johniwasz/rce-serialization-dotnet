@@ -37,6 +37,7 @@ Proto
 Repros
 Saft
 SAMEORIGIN
+securityheaders
 sneakyadmin
 someimage
 typeof
