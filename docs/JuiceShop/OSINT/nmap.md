@@ -53,7 +53,7 @@ This returns:
 
 ``` text
 Nmap done: 1 IP address (1 host up) scanned in 20.53 seconds
-PS C:\Users\iwasz\source\repos\rce-serialization-dotnet> nmap -sV -sS  demo.owasp-juice.shop
+PS C:\Users\username\source\repos\rce-serialization-dotnet> nmap -sV -sS  demo.owasp-juice.shop
 Starting Nmap 7.94 ( https://nmap.org ) at 2024-04-08 20:42 Eastern Daylight Time
 Nmap scan report for demo.owasp-juice.shop (81.169.145.156)
 Host is up (0.11s latency).
