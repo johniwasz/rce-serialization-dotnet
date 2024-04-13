@@ -40,6 +40,7 @@ SAMEORIGIN
 securityheaders
 sneakyadmin
 someimage
+Typeless
 typeof
 UFDZ
 USERPROFILE

@@ -1,12 +1,18 @@
 # Serialization Vulnerabilities
 
-Deserializing messages sent from an untrusted source introduces risk. Compromised messages processed by unsafe deserializers could result in an error at best or a    remote code execute exploit at worst. OWASP defines this as:
+Serialization vulnerabilities are not just limited to the `BinaryFormatter`. Any message that includes the type to deserialize poses a threat irrespective of method of serialization. [Newtonsoft.Json](https://www.newtonsoft.com/) and [MessagePack](https://msgpack.org/)[^1] are also susceptible.
 
->Data which is untrusted cannot be trusted to be well formed. Malformed data or unexpected data could be used to abuse application logic, deny service, or execute arbitrary code, when deserialized[^1].
+[^1]: MessagePack includes [Typeless deserialization](https://github.com/MessagePack-CSharp/MessagePack-CSharp?tab=readme-ov-file#typeless) which embeds the type to deserialize in the message.
 
-[^1]: [Deserialization of Untrusted Data](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data?WT.mc_id=MVP_337682)
+Deserializing messages sent from an untrusted source introduces risk. Compromised messages processed by unsafe deserializers could result in an error at best or a remote code execute exploit at worst. OWASP defines this as:
 
-This project demonstrates serialization vulnerabilities using Json.NET and the BinaryFormatter. The Todo project is based on the starter tutorial available here:
+>Data which is untrusted cannot be trusted to be well formed. Malformed data or unexpected data could be used to abuse application logic, deny service, or execute arbitrary code, when deserialized[^2].
+
+[^2]: [Deserialization of Untrusted Data](https://owasp.org/www-community/vulnerabilities/Deserialization_of_untrusted_data?WT.mc_id=MVP_337682)
+
+This project demonstrates serialization vulnerabilities using Json.NET and the BinaryFormatter.
+
+The Todo project is based on the starter tutorial available here:
 
 [Create a controller based API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio&WT.mc_id=MVP_337682)
 
