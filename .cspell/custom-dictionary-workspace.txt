@@ -6,10 +6,14 @@ AQAAAAA
 ascript
 binaryformatter
 bkimminich
+ccalc
 codeanalysis
+codeql
+controlflow
 datasource
 datasources
 datatable
+deserializers
 dolevf
 dpmn
 dvga
@@ -22,6 +26,7 @@ ipaddress
 Jyrnny
 Kiterunner
 launchdata
+mscorlib
 ncat
 netanalyzers
 Newtonsoft
@@ -42,7 +47,9 @@ sneakyadmin
 someimage
 Typeless
 typeof
+typetracking
 UFDZ
+urlencode
 USERPROFILE
 vnlp
 Vulnerabilties

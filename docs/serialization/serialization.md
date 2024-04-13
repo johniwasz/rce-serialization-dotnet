@@ -18,6 +18,15 @@ The Todo project is based on the starter tutorial available here:
 
 These examples were assembled based on serialization vulnerabilities highlighted in the [ysoserial.net](https://github.com/pwntester/ysoserial.net) git repo.
 
+## Deserialization and Gadget Chains
+
+Most serialization exploits utilize two components.
+
+- Type Specification. Messages that define the type to deserialize allow the caller use a vulnerable type.
+- Gadget. An exploitable type that includes a capability to launch a command specified in the message.
+
+Exploitable types are referred to as **gadgets**. These allow malicious code to be launched using a constructor, property, method, or a code snippet. **Gadgets** can be a native class or injected into the application. These may not be obvious if a class has a deeply nested hierarchy. In C#, classes that include `object` types or generics can be suspectable. For example, many public APIs include a capability to store metadata or arbitrary data that's captured with a `Dictionary<string, object>`. This opens a door for potential exploitation.
+
 ## Prerequisites
 
 Install [Visual Studio 2022](https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022&WT.mc_id=MVP_337682).
@@ -73,6 +82,8 @@ The payloads cannot be programmatically generated using these serializers with n
     a. If `ysoserial.exe` is not available, navigate to Windows Security and select Virus & Threat Protection. Review threat history and find `ysoserial.exe`. Select Action | Restore.
 
     ![ysoserial quarantined](./images/ysoserial01.png "ysoserial quarantined")
+
+    b. Alternatively, ysoserial can be excluded from threat protection using these instructions: [Add an exclusion to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26?WT.mc_id=MVP_337682).
 
 1. Optionally, add the Debug directory to your %PATH%.
 

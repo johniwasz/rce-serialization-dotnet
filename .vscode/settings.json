@@ -6,5 +6,6 @@
             "addWords": true,
             "scope": "workspace"
         }
-    }
+    },
+    "codeQL.createQuery.qlPackLocation": "c:\\Users\\John\\source\\repos\\rce-serialization-dotnet"
 }

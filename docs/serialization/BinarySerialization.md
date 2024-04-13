@@ -39,6 +39,13 @@ On Feb. 9th, 2024, Microsoft announced the BinaryFormatter is being removed from
     ysoserial -f BinaryFormatter -g ClaimsPrincipal -o base64 -c "calc"
     ```
 
+    | Parameter | Description |
+    | --- | --- |
+    | -f BinaryFormatter | The serializer and format |
+    | -g ClaimsPrincipal | The gadget chain (exploitable class) |
+    | -o base64 |  The output format (raw\|base64\|raw-urlencode\|base64-urlencode\|hex). Default: raw |
+    | -c "calc" | The command to be executed |
+
     This uses a vulnerability in the constructor of the `ClaimsPrincipal` in .NET Framework 4.8 to launch `calc.exe`. Running this test launches `calc.exe` on Windows and generates a serialization exception.
 
 1. Open the MetadataItem.cs file in the Todo.API project Models folder. The `BinaryJsonConverter` is used to deserialize the request.
