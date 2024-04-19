@@ -2,7 +2,7 @@
 
 This repo explores .NET Framework and .NET serialization vulnerabilities. This documentation also includes instructions for configuring vulnerable API test environments.
 
-[Juice Shop Vulnerabilities](JuiceShop/JuiceShop.md)
+[Juice Shop Vulnerabilities](JuiceShop/JuiceShop.md)  
 [Serialization Vulnerabilities](serialization/serialization.md)
 
 Serialization vulnerabilities and this documentation is maintained on Github at:
