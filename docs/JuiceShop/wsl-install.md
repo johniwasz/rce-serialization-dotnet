@@ -2,19 +2,19 @@
 
 Setting up an environment on Windows requires enabling [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/?WT.mc_id=MVP_337682) and launch it.
 
-``` bat
+``` powershell
 wsl --install
 ```
 
 There may be multiple distributions installed. For these exercises we will use the default Ubuntu distribution. To check distributions use:
 
-``` bat
+``` powershell
 wsl -v
 ```
 
 If Ubuntu is not the default, then use:
 
-``` bat
+``` powershell
 wsl --set-default Ubuntu
 ```
 
