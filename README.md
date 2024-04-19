@@ -1,4 +1,6 @@
-Documenation for this repo is available at:
+# Introduction
+
+Documentation for this repo is available at:
 
 [Repo Rendered Documentation](https://github.com/johniwasz/rce-serialization-dotnet/blob/main/docs/index.md)
 
