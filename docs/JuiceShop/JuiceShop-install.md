@@ -4,7 +4,7 @@ Launch Windows Subsystem for Linux, install the container, and launch the Juice 
 
 1. Open an Ubuntu shell from a Windows Command or Powershell terminal:
 
-    ``` bat
+    ``` powershell
     wsl
     ```
 
