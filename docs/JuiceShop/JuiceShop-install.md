@@ -14,7 +14,7 @@ Launch Windows Subsystem for Linux, install the container, and launch the Juice 
 
     ``` bash
     sudo docker pull bkimminich/juice-shop
-    sudo docker run --rm -p 80:3000 bkimminich/juice-shop
+    sudo docker run --rm -p 88:3000 bkimminich/juice-shop
     ```
 
     If you need to install Docker, see [Docker Install](./docker-install.md).

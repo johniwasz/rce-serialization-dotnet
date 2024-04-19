@@ -2,7 +2,7 @@
 
 Juice Shop is an intentionally vulnerable web site supported and maintained by [OWASP](owasp.org). It's available publicly at:
 
-https://demo.owasp-juice.shop/
+<https://demo.owasp-juice.shop/>
 
 Most exercises can be completed against the [Juice Shop](https://demo.owasp-juice.shop/). More invasive exploit challenges require a local installation.
 
@@ -16,12 +16,11 @@ Running Juice Shop locally requires docker and Windows Subsystem for Linux.
 
 [Docker Install](docker-install.md)  
 
-To install Juice Shop a local docker container, see [Juice Shop Install](JuiceShopInstall.md) which creates a local running instance at https://localhost:88 and http://localhost:88 hosted on docker on Ubuntu.
+To install Juice Shop a local docker container, see [Juice Shop Install](JuiceShop-Install.md) which creates a local running instance at <https://localhost:88> and <http://localhost:88> hosted on docker on Ubuntu.
 
 ## Reconnaissance
 
 Intelligence can be gathered from public APIs and websites using public information. This is typically referred to as [OSINT](https://osintframework.com/).
-
 
 | Tool | Description |
 | ---  | ----------  |
