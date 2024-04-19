@@ -16,7 +16,7 @@ Running Juice Shop locally requires docker and Windows Subsystem for Linux.
 
 [Docker Install](docker-install.md)  
 
-To install Juice Shop a local docker container, see [Juice Shop Install](JuiceShop-Install.md) which creates a local running instance at <https://localhost:88> and <http://localhost:88> hosted on docker on Ubuntu.
+To install Juice Shop a local docker container, see [Juice Shop Install](JuiceShop-install.md) which creates a local running instance at <https://localhost:88> and <http://localhost:88> hosted on docker on Ubuntu.
 
 ## Reconnaissance
 
