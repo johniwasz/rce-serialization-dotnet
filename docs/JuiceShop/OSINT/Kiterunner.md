@@ -38,13 +38,13 @@ Use [Kiterunner](https://github.com/assetnote/kiterunner) to find API endpoints.
 1. Run a scan against a running OWASP Juice Shop. This command uses the first 20,000 words in the apiroutes-240128 wordlist. It uses ten concurrent requests per host; the default is 3.
 
     ``` bash
-    kr scan https://demo.owasp-juice.shop -A=apiroutes-240128:20000 -x 10 --ignore-length=34 --fail-status-codes 404
+    kr scan https://demo.owasp-juice.shop -A=apiroutes-240428:20000 -x 10 --ignore-length=34 --fail-status-codes 404
     ```
 
 1. Run the scan against the local OWASP Juice Shop.
 
     ``` bash
-    kr scan https://localhost:88 -A=apiroutes-240128:20000 -x 10 --ignore-length=34 --fail-status-codes 404
+    kr scan https://localhost:88 -A=apiroutes-240428:20000 -x 10 --ignore-length=34 --fail-status-codes 404
     ```
 
 1. Optional. Replay a request. Replace the text in the quotes with the output of a 200 response from the prior run. NOTE: There may be a bug which prevents successful completion.
