@@ -9,7 +9,7 @@ wsl --install
 There may be multiple distributions installed. For these exercises we will use the default Ubuntu distribution. To check distributions use:
 
 ``` powershell
-wsl -v
+wsl --list
 ```
 
 If Ubuntu is not the default, then use:
