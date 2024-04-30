@@ -26,3 +26,20 @@ Amass is an OWASP tool that can be used for both active and passive reconnaissan
     ``` bash
     amass enum --passive -d owasp-juice.shop
     ```
+
+    This returns:
+
+    sponsor.owasp-juice.shop  
+    help.owasp-juice.shop  
+    www.owasp-juice.shop  
+    owasp-juice.shop  
+    stats.owasp-juice.shop  
+    preview.owasp-juice.shop  
+    pwning.owasp-juice.shop  
+    demo.owasp-juice.shop  
+    localchromeos.owasp-juice.shop  
+    slides.owasp-juice.shop  
+    intro.owasp-juice.shop  
+    local3000.owasp-juice.shop  
+    localmac.owasp-juice.shop  
+    local4200.owasp-juice.shop  
