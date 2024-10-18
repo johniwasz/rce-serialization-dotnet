@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "httptests", "httptests", "{730547CC-6611-4F9D-8D3E-085EE9300B31}"
 	ProjectSection(SolutionItems) = preProject
 		requests.http = requests.http
+		requests_fixed.http = requests_fixed.http
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApi.Tests", "TodoApi.Tests\TodoApi.Tests.csproj", "{4330476C-C409-49D9-B169-A41998C0538C}"
