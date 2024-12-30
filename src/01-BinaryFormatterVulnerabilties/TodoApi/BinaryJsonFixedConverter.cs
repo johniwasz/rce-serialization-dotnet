@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using System.Formats.Nrbf;
 
+
 namespace TodoApi
 {
     public class BinaryJsonFixedConverter : JsonConverter
@@ -16,6 +17,8 @@ namespace TodoApi
         {
             return true;
         }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "SYSLIB5005:Unnecessary assignment of a value", Justification = "This is a test to demonstrate the vulnerability")]
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -35,6 +38,7 @@ namespace TodoApi
 
             using (var stream = new MemoryStream(buffer))
             {
+#pragma warning disable SYSLIB5005 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
                 SerializationRecord record = NrbfDecoder.Decode(stream);
 
                 if (record is PrimitiveTypeRecord primitiveRecord)
@@ -54,8 +58,9 @@ namespace TodoApi
                 {
                     return arrayOfBytes;
                 }
-            }
+#pragma warning restore SYSLIB5005 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
+            }
             return convertedObj;
         }
 
